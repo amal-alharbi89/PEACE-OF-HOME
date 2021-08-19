@@ -1,0 +1,24 @@
+div.loader mat-spinner {
+    margin: 0 auto;
+    margin-top: 2%;
+    margin-bottom: 1%;
+}
+
+div.loader {
+    text-align: center;
+}
+
+div.result {
+    text-align: center;
+}
+
+mat-card.listing-card {
+    width: 300px;
+    height: 480px;
+    margin: 8px 4px;
+    display: inline-table;
+}
+
+span.crime-count {
+    color: red;
+}

@@ -1,0 +1,30 @@
+<div class="loader" *ngIf="showLoader">
+  <mat-spinner></mat-spinner>
+  <span *ngIf="loadPercent != 0" class="percentage">{{ loadPercent }}%</span>
+</div>
+
+<div class="result" *ngIf="showResult">
+  <!-- <pre> {{ searchResult | json }} </pre> -->
+  <button mat-button (click)="orderCrime()">Order by crime count</button>
+  <button mat-button (click)="orderPrice()">Order by price</button>
+  <br>
+  <mat-card *ngFor="let listing of listings" class="listing-card">
+    <mat-card-header>
+      <!-- <div mat-card-avatar class="example-header-image"></div> -->
+      <mat-card-title>{{ listing.property_type }}</mat-card-title>
+      <mat-card-subtitle>{{ listing.displayable_address }}</mat-card-subtitle>
+    </mat-card-header>
+    <img mat-card-image src="{{ listing.image_645_430_url }}" alt="Property picture" width="500" height="250">
+    <mat-card-content>
+      <strong>£{{ listing.price }}</strong>
+      <span *ngIf="listing.price == 0">&nbsp;(Price on request)</span>
+      <p>
+        {{ listing.short_description | slice:0:200 }} ...
+      </p>
+    </mat-card-content>
+    <mat-card-actions>
+      <button mat-button (click)="showDetails(listing)">Details</button>
+      <span class="crime-count">Street-level crime count: {{ listing.crimeCount }} </span> 
+    </mat-card-actions>
+  </mat-card>
+</div>

@@ -1,0 +1,18 @@
+div.details {
+    margin: 2% 2%;
+}
+
+img.listing-image {
+    width: 34%;
+    height: auto;
+}
+
+@media only screen and (max-width: 600px) {
+    img.listing-image {
+        width: 100%;
+    }
+}
+
+/* mat-tab-header.mat-tab-header {
+    background: #f1f1f18c !important;
+} */

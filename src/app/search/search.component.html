@@ -1,0 +1,45 @@
+<div class="field">
+  <form [formGroup]="searchForm" (ngSubmit)="onSearch($event)">
+    <mat-form-field id="search-field">
+      <input matInput formControlName="location" placeholder="Enter location" [matAutocomplete]="auto" required>
+      <mat-hint>For example: Southampton</mat-hint>
+      <mat-error>Please enter a location</mat-error>
+    </mat-form-field>
+
+    <mat-autocomplete #auto="matAutocomplete">
+      <mat-option *ngFor="let suggestion of suggestions" [value]="suggestion.value">
+        {{ suggestion.value }}
+      </mat-option>
+    </mat-autocomplete>
+
+    <button mat-raised-button id="search-button" [disabled]="!searchForm.valid">Search</button>
+  </form>
+
+  <div class="loader" *ngIf="showLoader">
+    <mat-spinner></mat-spinner>
+  </div>
+
+  <div class="result" *ngIf="showResult">
+    <!-- <pre> {{ searchResult | json }} </pre> -->
+    <mat-card *ngFor="let listing of listings" class="listing-card">
+      <mat-card-header>
+        <!-- <div mat-card-avatar class="example-header-image"></div> -->
+        <mat-card-title>{{ listing.property_type }}</mat-card-title>
+        <mat-card-subtitle>{{ listing.displayable_address }}</mat-card-subtitle>
+      </mat-card-header>
+      <img mat-card-image src="{{ listing.image_645_430_url }}" alt="Property picture">
+      <mat-card-content>
+        <p>
+          {{ listing.short_description }}
+        </p>
+      </mat-card-content>
+      <mat-card-actions>
+        <button mat-button>More details</button>
+      </mat-card-actions>
+    </mat-card>
+  </div>
+</div>
+
+<footer>
+  <img src="https://www.zoopla.co.uk/static/images/mashery/powered-by-zoopla-150x73.png" width="150" height="73" title="Property information powered by Zoopla" alt="Property information powered by Zoopla" border="0">
+</footer>

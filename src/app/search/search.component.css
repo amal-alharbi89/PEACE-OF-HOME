@@ -1,0 +1,34 @@
+#search-field {
+    align-self: center;
+    width: 50%;
+}
+
+#search-button {
+    margin-left: 12px;
+}
+
+div.field {
+    margin-top: 6%;
+    text-align: center;
+}
+
+div.loader mat-spinner {
+    margin: 0 auto;
+    margin-top: 2%;
+}
+
+/* div.result {
+    text-align: left;
+} */
+
+mat-card.listing-card {
+    width: 300px;
+    margin: 2px 2px;
+    display: inline-table;
+}
+
+footer {
+    position: absolute;
+    bottom: 0;
+    width: 100%;
+}
